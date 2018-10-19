@@ -26,9 +26,12 @@ public class Practice06Test {
 	
 	public boolean isPalindrome(String item) {
 		clearData();
-		for (int i = 0; i < item.length(); i++) {
-			stack.push(item.substring(i, i+1));
-			queue.enqueue(item.substring(i, i+1));
+		item = item.toLowerCase();
+		item = item.replaceAll(" ", "");
+		item = item.replaceAll("!", "");
+		for (int i = 0; i < item.length(); i++){
+				stack.push(item.substring(i, i+1));
+				queue.enqueue(item.substring(i, i+1));
 		}
 
 		while (! stack.empty() && ! queue.empty()) {
@@ -124,7 +127,7 @@ public class Practice06Test {
 				}
 			}
 		} catch (Exception e) {
-			// Do nothing
+			e.printStackTrace();
 		} finally {
 			System.out.println("====================");
 			System.out.println("Grade for this assignment: " + grade + "%");
