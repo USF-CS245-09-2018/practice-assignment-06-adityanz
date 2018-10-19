@@ -27,8 +27,15 @@ public class Practice06Test {
 	public boolean isPalindrome(String item) {
 		clearData();
 		item = item.toLowerCase();
-		item = item.replaceAll(" ", "");
-		item = item.replaceAll("!", "");
+		StringBuilder sb = new StringBuilder();
+		sb.append(item);
+		for (int j = 0; j < sb.length(); j++){
+			if ((int) sb.charAt(j) < 96 ||(int) sb.charAt(j)> 123)
+			{
+				sb.deleteCharAt(j);
+			}
+		}
+		item = sb.toString();
 		for (int i = 0; i < item.length(); i++){
 				stack.push(item.substring(i, i+1));
 				queue.enqueue(item.substring(i, i+1));
